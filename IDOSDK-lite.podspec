@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'IDOSDK-lite'
-  s.version          = '4.0.30'
+  s.version          = '4.0.31'
   s.summary          = 'ido sdk'
   s.description      = <<-DESC
   ido sdk
@@ -23,7 +23,8 @@ Pod::Spec.new do |s|
     'FlutterPluginRegistrant.xcframework',
     'native_channel.xcframework',
     'protocol_channel.xcframework',
-    'protocol_c.framework'
+    'protocol_c.framework',
+    'IDOUtils.framework'
    ]
    
    # Flutter.framework does not contain a i386 slice.
