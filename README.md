@@ -2,21 +2,33 @@
 
 
 
-
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
 ## Installation
 
-IDOSDK-lite is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+
+
+### From CocoaPods
+
+[CocoaPods](http://cocoapods.org/) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like `IDOSDK-lite` in your projects. First, add the following line to your [Podfile](http://guides.cocoapods.org/using/using-cocoapods.html):
 
 ```ruby
 pod 'IDOSDK-lite'
 ```
+
+If you want to use the latest features of `IDOSDK-lite` use normal external source dependencies.
+
+```ruby
+pod 'IDOSDK-lite', :git => 'https://github.com/idoosmart/ios_sdk_lite.git'
+```
+
+This pulls from the `main` branch directly.
+
+Second, install `IDOSDK-lite` into your project:
+
+```shell
+pod install
+```
+
+
 
 ## Author
 
