@@ -53,6 +53,172 @@ import _SwiftConcurrencyShims
     get
   }
 }
+@objc public enum IDODeviceStateType : Swift.Int {
+  case disconnected = 0
+  case connecting
+  case connected
+  case disconnecting
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum IDOBluetoothStateType : Swift.Int {
+  case unknown = 0
+  case resetting
+  case unsupported
+  case unauthorized
+  case poweredOff
+  case poweredOn
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum IDOBluetoothScanType : Swift.Int {
+  case scanning = 0
+  case stop
+  case find
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum IDOConnectErrorType : Swift.Int {
+  case none = 0
+  case abnormalUUIDMacAddress
+  case bluetoothOff
+  case connectCancel
+  case fail
+  case timeOut
+  case serviceFail
+  case characteristicsFail
+  case pairFail
+  case informationFail
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum IDOWriteType : Swift.Int {
+  case withResponse = 0
+  case withoutResponse
+  case error
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum IDOSppStateType : Swift.Int {
+  case onStart = 0
+  case onSuccess
+  case onFail
+  case onBreak
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @objcMembers public class IDODeviceModel : ObjectiveC.NSObject {
+  @objc public var rssi: Swift.Int {
+    get
+  }
+  @objc public var name: Swift.String? {
+    get
+  }
+  @objc public var state: protocol_channel.IDODeviceStateType {
+    get
+  }
+  @objc public var uuid: Swift.String? {
+    get
+  }
+  @objc public var macAddress: Swift.String? {
+    get
+  }
+  @objc public var otaMacAddress: Swift.String? {
+    get
+  }
+  @objc public var btMacAddress: Swift.String? {
+    get
+  }
+  @objc public var deviceId: Swift.Int {
+    get
+  }
+  @objc public var deviceType: Swift.Int {
+    get
+  }
+  @objc public var isOta: Swift.Bool {
+    get
+  }
+  @objc public var isTlwOta: Swift.Bool {
+    get
+  }
+  @objc public var bltVersion: Swift.Int {
+    get
+  }
+  @objc public var isPair: Swift.Bool {
+    get
+  }
+  @objc public init(rssi: Swift.Int, name: Swift.String?, state: protocol_channel.IDODeviceStateType, uuid: Swift.String?, macAddress: Swift.String?, otaMacAddress: Swift.String?, btMacAddress: Swift.String?, deviceId: Swift.Int, deviceType: Swift.Int, isOta: Swift.Bool, isTlwOta: Swift.Bool, bltVersion: Swift.Int, isPair: Swift.Bool)
+  @objc deinit
+}
+@objc @objcMembers public class IDOBluetoothStateModel : ObjectiveC.NSObject {
+  @objc final public let type: protocol_channel.IDOBluetoothStateType
+  @objc final public let scanType: protocol_channel.IDOBluetoothScanType
+  @objc public init(type: protocol_channel.IDOBluetoothStateType, scanType: protocol_channel.IDOBluetoothScanType)
+  @objc deinit
+}
+@objc @objcMembers public class IDODeviceStateModel : ObjectiveC.NSObject {
+  @objc final public let uuid: Swift.String?
+  @objc final public let macAddress: Swift.String?
+  @objc final public let state: protocol_channel.IDODeviceStateType
+  @objc final public let errorState: protocol_channel.IDOConnectErrorType
+  @objc public init(uuid: Swift.String?, macAddress: Swift.String?, state: protocol_channel.IDODeviceStateType, errorState: protocol_channel.IDOConnectErrorType)
+  @objc deinit
+}
+@objc @objcMembers public class IDOWriteStateModel : ObjectiveC.NSObject {
+  @objc final public let state: Swift.Bool
+  @objc final public let uuid: Swift.String?
+  @objc final public let macAddress: Swift.String?
+  @objc final public let type: protocol_channel.IDOWriteType
+  @objc public init(state: Swift.Bool, uuid: Swift.String?, macAddress: Swift.String?, type: protocol_channel.IDOWriteType)
+  @objc deinit
+}
+@objc @objcMembers public class IDOReceiveData : ObjectiveC.NSObject {
+  @objc final public let data: Foundation.Data?
+  @objc final public let uuid: Swift.String?
+  @objc final public let macAddress: Swift.String?
+  @objc final public let spp: Swift.Bool
+  @objc final public let platform: Swift.Int
+  @objc public init(data: Foundation.Data?, uuid: Swift.String?, macAddress: Swift.String?, spp: Swift.Bool, platform: Swift.Int)
+  @objc deinit
+}
+@objc @objcMembers public class IDOSppStateModel : ObjectiveC.NSObject {
+  @objc final public let type: protocol_channel.IDOSppStateType
+  @objc public init(type: protocol_channel.IDOSppStateType)
+  @objc deinit
+}
+@objc @objcMembers public class IDODfuConfig : ObjectiveC.NSObject {
+  @objc final public let filePath: Swift.String?
+  @objc final public let uuid: Swift.String?
+  @objc final public let macAddress: Swift.String?
+  @objc final public let deviceId: Swift.String?
+  @objc final public let platform: Swift.Int
+  @objc final public let isDeviceSupportPairedWithPhoneSystem: Swift.Bool
+  @objc final public let prn: Swift.Int
+  @objc final public let isNeedReOpenBluetoothSwitchIfFailed: Swift.Bool
+  @objc final public let maxRetryTime: Swift.Int
+  @objc final public let isNeedAuth: Swift.Bool
+  @objc final public let otaWorkMode: Swift.Int
+  @objc public init(filePath: Swift.String?, uuid: Swift.String?, macAddress: Swift.String?, deviceId: Swift.String?, platform: Swift.Int, isDeviceSupportPairedWithPhoneSystem: Swift.Bool, prn: Swift.Int, isNeedReOpenBluetoothSwitchIfFailed: Swift.Bool, maxRetryTime: Swift.Int, isNeedAuth: Swift.Bool, otaWorkMode: Swift.Int)
+  @objc deinit
+}
 @objc @objcMembers public class IDOBleData : ObjectiveC.NSObject {
   @objc public var data: Foundation.Data?
   @objc public var macAddress: Swift.String?
@@ -2355,6 +2521,32 @@ public protocol IDOBaseModel : Swift.Decodable, Swift.Encodable {
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
+@objc public protocol IDOBleInterface {
+  @objc func addBleDelegate(api: (any protocol_channel.IDOBleDelegate)?)
+  @objc func addDfuDelegate(api: (any protocol_channel.IDODfuDelegate)?)
+  @objc func startScan(macAddress: Swift.String?, completion: @escaping ([protocol_channel.IDODeviceModel]?) -> Swift.Void)
+  @objc func scanFilter(deviceName: [Swift.String]?, deviceID: [Swift.Int]?, macAddress: [Swift.String]?, uuid: [Swift.String]?)
+  @objc func stopScan()
+  @objc func connect(device: protocol_channel.IDODeviceModel?)
+  @objc func autoConnect(device: protocol_channel.IDODeviceModel?)
+  @objc func cancelConnect(macAddress: Swift.String?, completion: @escaping (Swift.Bool) -> Swift.Void)
+  @objc func getBluetoothState(completion: @escaping (protocol_channel.IDOBluetoothStateModel) -> Swift.Void)
+  @objc func getDeviceState(device: protocol_channel.IDODeviceModel?, completion: @escaping (protocol_channel.IDODeviceStateModel) -> Swift.Void)
+  @objc func writeData(data: Foundation.Data, device: protocol_channel.IDODeviceModel, type: Swift.Int, platform: Swift.Int, completion: @escaping (protocol_channel.IDOWriteStateModel) -> Swift.Void)
+  @objc func startNordicDFU(config: protocol_channel.IDODfuConfig)
+  @objc func exportLog(completion: @escaping (Swift.String?) -> Swift.Void)
+}
+@objc public protocol IDODfuDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func dfuComplete()
+  @objc func dfuError(error: Swift.String)
+  @objc func dfuProgress(progress: Swift.Int)
+}
+@objc public protocol IDOBleDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func scanResult(list: [protocol_channel.IDODeviceModel]?)
+  @objc func bluetoothState(state: protocol_channel.IDOBluetoothStateModel)
+  @objc func deviceState(state: protocol_channel.IDODeviceStateModel)
+  @objc func receiveData(data: protocol_channel.IDOReceiveData)
+}
 @objc @objcMembers public class IDOBleVoiceParamModel : ObjectiveC.NSObject, protocol_channel.IDOBaseModel {
   @objc public var totalVolume: Swift.Int
   @objc public var currentVolume: Swift.Int
@@ -2423,23 +2615,13 @@ public protocol IDOBaseModel : Swift.Decodable, Swift.Encodable {
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@objc public protocol IDOBridgeInterface : protocol_channel.IDOBridgePipeInterface {
+@objc public protocol IDOBridgeInterface {
   @objc func setupBridge(delegate: any protocol_channel.IDOBridgeDelegate, logType: protocol_channel.IDOLogType)
 }
-@objc public protocol IDOBridgeDelegate : ObjectiveC.NSObjectProtocol, protocol_channel.IDOBridgePipeDelegate {
+@objc public protocol IDOBridgeDelegate : ObjectiveC.NSObjectProtocol {
   @objc func listenStatusNotification(status: protocol_channel.IDOStatusNotification)
   @objc func listenDeviceNotification(model: protocol_channel.IDODeviceNotificationModel)
   @objc func checkDeviceBindState(macAddress: Swift.String) -> Swift.Bool
-}
-@objc public protocol IDOBridgePipeInterface {
-  @objc func markConnectedDevice(uniqueId: Swift.String, otaType: protocol_channel.IDOOtaType, isBinded: Swift.Bool, deviceName: Swift.String?, completion: @escaping (Swift.Bool) -> Swift.Void)
-  @objc func markDisconnectedDevice(macAddress: Swift.String?, uuid: Swift.String?, completion: @escaping (Swift.Bool) -> Swift.Void)
-  @objc func receiveDataFromBle(data: Foundation.Data, macAddress: Swift.String?)
-  @objc func writeDataComplete()
-  @objc func checkOtaType(peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any]) -> protocol_channel.IDOOtaType
-}
-@objc public protocol IDOBridgePipeDelegate {
-  @objc func writeDataToBle(bleData: protocol_channel.IDOBleData)
 }
 @objc @objcMembers public class IDOBtNoticeModel : ObjectiveC.NSObject, protocol_channel.IDOBaseModel {
   @objc public var btConnectStates: Swift.Int
@@ -3528,7 +3710,7 @@ public protocol IDOCmdProtocol {
   @objc public var lowHeartMode: Swift.Int
   @objc public var highHeartValue: Swift.Int
   @objc public var lowHeartValue: Swift.Int
-  @objc public init(updateTime: Swift.Int, mode: Swift.Int, hasTimeRange: Swift.Int, startHour: Swift.Int, startMinute: Swift.Int, endHour: Swift.Int, endMinute: Swift.Int, measurementInterval: Swift.Int, notifyFlag: Swift.Int, highHeartMode: Swift.Int, lowHeartMode: Swift.Int, highHeartValue: Swift.Int, lowHeartValue: Swift.Int)
+  @objc public init(updateTime: Swift.Int, mode: Swift.Int = 0, hasTimeRange: Swift.Int = 0, startHour: Swift.Int = 0, startMinute: Swift.Int = 0, endHour: Swift.Int = 0, endMinute: Swift.Int = 0, measurementInterval: Swift.Int = 0, notifyFlag: Swift.Int = 0, highHeartMode: Swift.Int = 0, lowHeartMode: Swift.Int = 0, highHeartValue: Swift.Int = 0, lowHeartValue: Swift.Int = 0)
   @objc public func toJsonString() -> Swift.String?
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
@@ -3544,7 +3726,9 @@ public protocol IDOCmdProtocol {
   @objc public var endMinute: Swift.Int
   @objc public var measurementInterval: Swift.Int
   @objc public var getSECMode: Swift.Int
+  @objc public var secModeArray: [Swift.Int]
   @objc public var getMinMode: Swift.Int
+  @objc public var minModeArray: [Swift.Int]
   @objc public var notifyFlag: Swift.Int
   @objc public var highHeartMode: Swift.Int
   @objc public var lowHeartMode: Swift.Int
@@ -4369,6 +4553,9 @@ public protocol IDOCmdProtocol {
   @objc public var bridge: any protocol_channel.IDOBridgeInterface {
     @objc get
   }
+  @objc public var ble: any protocol_channel.IDOBleInterface {
+    @objc get
+  }
   @objc public var alexa: any protocol_channel.IDOAlexaInterface {
     @objc get
   }
@@ -4414,6 +4601,7 @@ public protocol IDOCmdProtocol {
   @objc var funcTable: any protocol_channel.IDOFuncTableInterface { get }
   @objc var cmd: any protocol_channel.IDOCmdInterface { get }
   @objc var bridge: any protocol_channel.IDOBridgeInterface { get }
+  @objc var ble: any protocol_channel.IDOBleInterface { get }
   @objc var alexa: any protocol_channel.IDOAlexaInterface { get }
   @objc var transfer: any protocol_channel.IDOFileTransferInterface { get }
   @objc var messageIcon: any protocol_channel.IDOMessageIconInterface { get }
@@ -5567,6 +5755,24 @@ extension protocol_channel.IDOGetValueType : Swift.RawRepresentable {}
 extension protocol_channel.IDOAlexaAuthorizeResult : Swift.Equatable {}
 extension protocol_channel.IDOAlexaAuthorizeResult : Swift.Hashable {}
 extension protocol_channel.IDOAlexaAuthorizeResult : Swift.RawRepresentable {}
+extension protocol_channel.IDODeviceStateType : Swift.Equatable {}
+extension protocol_channel.IDODeviceStateType : Swift.Hashable {}
+extension protocol_channel.IDODeviceStateType : Swift.RawRepresentable {}
+extension protocol_channel.IDOBluetoothStateType : Swift.Equatable {}
+extension protocol_channel.IDOBluetoothStateType : Swift.Hashable {}
+extension protocol_channel.IDOBluetoothStateType : Swift.RawRepresentable {}
+extension protocol_channel.IDOBluetoothScanType : Swift.Equatable {}
+extension protocol_channel.IDOBluetoothScanType : Swift.Hashable {}
+extension protocol_channel.IDOBluetoothScanType : Swift.RawRepresentable {}
+extension protocol_channel.IDOConnectErrorType : Swift.Equatable {}
+extension protocol_channel.IDOConnectErrorType : Swift.Hashable {}
+extension protocol_channel.IDOConnectErrorType : Swift.RawRepresentable {}
+extension protocol_channel.IDOWriteType : Swift.Equatable {}
+extension protocol_channel.IDOWriteType : Swift.Hashable {}
+extension protocol_channel.IDOWriteType : Swift.RawRepresentable {}
+extension protocol_channel.IDOSppStateType : Swift.Equatable {}
+extension protocol_channel.IDOSppStateType : Swift.Hashable {}
+extension protocol_channel.IDOSppStateType : Swift.RawRepresentable {}
 extension protocol_channel.IDOStatusNotification : Swift.Equatable {}
 extension protocol_channel.IDOStatusNotification : Swift.Hashable {}
 extension protocol_channel.IDOStatusNotification : Swift.RawRepresentable {}

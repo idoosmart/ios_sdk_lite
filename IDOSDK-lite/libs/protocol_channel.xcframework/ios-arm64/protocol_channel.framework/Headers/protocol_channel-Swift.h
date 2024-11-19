@@ -2063,6 +2063,23 @@ SWIFT_CLASS("_TtC16protocol_channel10IDOBleData")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class IDODeviceModel;
+@class IDOBluetoothStateModel;
+@class IDODeviceStateModel;
+@class IDOReceiveData;
+
+SWIFT_PROTOCOL("_TtP16protocol_channel14IDOBleDelegate_")
+@protocol IDOBleDelegate <NSObject>
+/// 搜索设备结果
+- (void)scanResultWithList:(NSArray<IDODeviceModel *> * _Nullable)list;
+/// 蓝牙状态
+- (void)bluetoothStateWithState:(IDOBluetoothStateModel * _Nonnull)state;
+/// 设备状态状态
+- (void)deviceStateWithState:(IDODeviceStateModel * _Nonnull)state;
+/// 接收到的蓝牙数据
+- (void)receiveDataWithData:(IDOReceiveData * _Nonnull)data;
+@end
+
 
 /// ble发起的运动 ble设备发送交换运动数据结束
 /// Generated class from Pigeon that represents data sent in messages.
@@ -2111,6 +2128,61 @@ SWIFT_CLASS("_TtC16protocol_channel27IDOBleIngReplyExchangeModel")
 - (nonnull instancetype)initWithBaseModel:(IDOExchangeBaseModel * _Nullable)baseModel distance:(NSInteger)distance OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@protocol IDODfuDelegate;
+@class IDOWriteStateModel;
+@class IDODfuConfig;
+
+/// 蓝牙接口
+SWIFT_PROTOCOL("_TtP16protocol_channel15IDOBleInterface_")
+@protocol IDOBleInterface
+/// 添加蓝牙代理
+- (void)addBleDelegateWithApi:(id <IDOBleDelegate> _Nullable)api;
+/// 添加DFU升级 (nordic)
+- (void)addDfuDelegateWithApi:(id <IDODfuDelegate> _Nullable)api;
+/// 开始搜索
+/// macAddress（Android）:根据Mac地址搜索
+/// 返回指定搜索的设备，如未指定返回null
+- (void)startScanWithMacAddress:(NSString * _Nullable)macAddress completion:(void (^ _Nonnull)(NSArray<IDODeviceModel *> * _Nullable))completion;
+/// 搜索筛选条件
+/// \code
+/// deviceName: 只搜索deviceName的设备
+/// deviceID：只搜索deviceID的设备
+/// macAddress：只搜索macAddress的设备
+/// uuid：只搜索uuid的设备
+///
+/// \endcode
+- (void)scanFilterWithDeviceName:(NSArray<NSString *> * _Nullable)deviceName deviceID:(NSArray<NSNumber *> * _Nullable)deviceID macAddress:(NSArray<NSString *> * _Nullable)macAddress uuid:(NSArray<NSString *> * _Nullable)uuid;
+/// 停止搜索
+- (void)stopScan;
+/// 连接
+/// device: Mac地址必传，iOS要带上uuid，最好使用搜索返回的对象
+- (void)connectWithDevice:(IDODeviceModel * _Nullable)device;
+/// 使用这个重连设备
+- (void)autoConnectWithDevice:(IDODeviceModel * _Nullable)device;
+/// 取消连接
+- (void)cancelConnectWithMacAddress:(NSString * _Nullable)macAddress completion:(void (^ _Nonnull)(BOOL))completion;
+/// 获取蓝牙状态
+- (void)getBluetoothStateWithCompletion:(void (^ _Nonnull)(IDOBluetoothStateModel * _Nonnull))completion;
+/// 获取设备连接状态
+- (void)getDeviceStateWithDevice:(IDODeviceModel * _Nullable)device completion:(void (^ _Nonnull)(IDODeviceStateModel * _Nonnull))completion;
+/// 发送数据
+/// \param data 数据
+///
+/// \param device 发送数据的设备
+///
+/// \param type 0 BLE数据, 1 SPP数据
+///
+/// \param platform 0 爱都, 1 恒玄, 2 VC
+///
+/// \param completion 结果 IDOWriteStateModel
+///
+- (void)writeDataWithData:(NSData * _Nonnull)data device:(IDODeviceModel * _Nonnull)device type:(NSInteger)type platform:(NSInteger)platform completion:(void (^ _Nonnull)(IDOWriteStateModel * _Nonnull))completion;
+/// 发起dfu升级
+- (void)startNordicDFUWithConfig:(IDODfuConfig * _Nonnull)config;
+/// 导出ble日志，返回压缩后日志zip文件绝对路径
+- (void)exportLogWithCompletion:(void (^ _Nonnull)(NSString * _Nullable))completion;
 @end
 
 
@@ -2259,6 +2331,43 @@ SWIFT_CLASS("_TtC16protocol_channel21IDOBleVoiceParamModel")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+/// 扫描状态
+typedef SWIFT_ENUM(NSInteger, IDOBluetoothScanType, open) {
+/// 扫描中
+  IDOBluetoothScanTypeScanning = 0,
+/// 扫描结束
+  IDOBluetoothScanTypeStop = 1,
+/// 找到设备（android）
+  IDOBluetoothScanTypeFind = 2,
+};
+
+enum IDOBluetoothStateType : NSInteger;
+
+SWIFT_CLASS("_TtC16protocol_channel22IDOBluetoothStateModel")
+@interface IDOBluetoothStateModel : NSObject
+@property (nonatomic, readonly) enum IDOBluetoothStateType type;
+@property (nonatomic, readonly) enum IDOBluetoothScanType scanType;
+- (nonnull instancetype)initWithType:(enum IDOBluetoothStateType)type scanType:(enum IDOBluetoothScanType)scanType OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// 蓝牙状态
+typedef SWIFT_ENUM(NSInteger, IDOBluetoothStateType, open) {
+/// 未知
+  IDOBluetoothStateTypeUnknown = 0,
+/// 系统服务重启中
+  IDOBluetoothStateTypeResetting = 1,
+/// 不支持
+  IDOBluetoothStateTypeUnsupported = 2,
+/// 未授权
+  IDOBluetoothStateTypeUnauthorized = 3,
+/// 蓝牙关闭
+  IDOBluetoothStateTypePoweredOff = 4,
+/// 蓝牙打开
+  IDOBluetoothStateTypePoweredOn = 5,
+};
+
 
 /// Get blood pressure algorithm version information event number
 SWIFT_CLASS("_TtC16protocol_channel20IDOBpAlgVersionModel")
@@ -2374,18 +2483,11 @@ SWIFT_CLASS("_TtC16protocol_channel26IDOBpMeasurementParamModel")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
-SWIFT_PROTOCOL("_TtP16protocol_channel21IDOBridgePipeDelegate_")
-@protocol IDOBridgePipeDelegate
-/// 写数据到蓝牙设备
-- (void)writeDataToBleWithBleData:(IDOBleData * _Nonnull)bleData;
-@end
-
 enum IDOStatusNotification : NSInteger;
 @class IDODeviceNotificationModel;
 
 SWIFT_PROTOCOL("_TtP16protocol_channel17IDOBridgeDelegate_")
-@protocol IDOBridgeDelegate <NSObject, IDOBridgePipeDelegate>
+@protocol IDOBridgeDelegate <NSObject>
 /// 监听状态通知（SDK)
 - (void)listenStatusNotificationWithStatus:(enum IDOStatusNotification)status;
 /// 监听设备主动通知/控制事件 (设备)
@@ -2394,37 +2496,11 @@ SWIFT_PROTOCOL("_TtP16protocol_channel17IDOBridgeDelegate_")
 - (BOOL)checkDeviceBindStateWithMacAddress:(NSString * _Nonnull)macAddress SWIFT_WARN_UNUSED_RESULT;
 @end
 
-enum IDOOtaType : NSInteger;
-@class CBPeripheral;
-
-SWIFT_PROTOCOL("_TtP16protocol_channel22IDOBridgePipeInterface_")
-@protocol IDOBridgePipeInterface
-/// 标记设备已连接 （蓝牙连接时调用）
-/// \param uniqueId 当前连接设备的mac地址或uuid
-///
-/// \param otaType 设置ota模式
-///
-/// \param isBinded 绑定状态
-///
-/// \param deviceName 设备名称
-///
-- (void)markConnectedDeviceWithUniqueId:(NSString * _Nonnull)uniqueId otaType:(enum IDOOtaType)otaType isBinded:(BOOL)isBinded deviceName:(NSString * _Nullable)deviceName completion:(void (^ _Nonnull)(BOOL))completion;
-/// 标记设备已断开（蓝牙断开时调用）
-- (void)markDisconnectedDeviceWithMacAddress:(NSString * _Nullable)macAddress uuid:(NSString * _Nullable)uuid completion:(void (^ _Nonnull)(BOOL))completion;
-/// 收到蓝牙数据
-/// type 数据类型 0:ble 1:SPP
-- (void)receiveDataFromBleWithData:(NSData * _Nonnull)data macAddress:(NSString * _Nullable)macAddress;
-/// 发送蓝牙数据完成
-- (void)writeDataComplete;
-/// 检查ota类型
-- (enum IDOOtaType)checkOtaTypeWithPeripheral:(CBPeripheral * _Nonnull)peripheral advertisementData:(NSDictionary<NSString *, id> * _Nonnull)advertisementData SWIFT_WARN_UNUSED_RESULT;
-@end
-
 enum IDOLogType : NSInteger;
 
 /// 桥接接口
 SWIFT_PROTOCOL("_TtP16protocol_channel18IDOBridgeInterface_")
-@protocol IDOBridgeInterface <IDOBridgePipeInterface>
+@protocol IDOBridgeInterface
 /// 注册,程序开始运行调用（全局只调用一次即可）
 /// \param delegate 代理
 ///
@@ -2432,8 +2508,6 @@ SWIFT_PROTOCOL("_TtP16protocol_channel18IDOBridgeInterface_")
 ///
 - (void)setupBridgeWithDelegate:(id <IDOBridgeDelegate> _Nonnull)delegate logType:(enum IDOLogType)logType;
 @end
-
-
 
 
 /// Query BT pairing switch, connection, A2DP connection, HFP connection status (Only Supported on devices with BT Bluetooth) event number
@@ -2580,6 +2654,30 @@ SWIFT_CLASS("_TtC16protocol_channel22IDOCmdSetResponseModel")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+/// 连接错误
+typedef SWIFT_ENUM(NSInteger, IDOConnectErrorType, open) {
+/// 无状态
+  IDOConnectErrorTypeNone = 0,
+/// UUID或Mac地址异常
+  IDOConnectErrorTypeAbnormalUUIDMacAddress = 1,
+/// 蓝牙关闭
+  IDOConnectErrorTypeBluetoothOff = 2,
+/// 主动断开连接
+  IDOConnectErrorTypeConnectCancel = 3,
+/// 连接失败
+  IDOConnectErrorTypeFail = 4,
+/// 连接超时
+  IDOConnectErrorTypeTimeOut = 5,
+/// 发现服务失败
+  IDOConnectErrorTypeServiceFail = 6,
+/// 发现特征失败
+  IDOConnectErrorTypeCharacteristicsFail = 7,
+/// 配对异常
+  IDOConnectErrorTypePairFail = 8,
+/// 获取基本信息失败
+  IDOConnectErrorTypeInformationFail = 9,
+};
 
 
 SWIFT_CLASS("_TtC16protocol_channel14IDOContactItem")
@@ -2961,6 +3059,42 @@ SWIFT_CLASS("_TtC16protocol_channel21IDODeviceLogTypeClass")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+enum IDODeviceStateType : NSInteger;
+
+SWIFT_CLASS("_TtC16protocol_channel14IDODeviceModel")
+@interface IDODeviceModel : NSObject
+/// rssi
+@property (nonatomic, readonly) NSInteger rssi;
+/// 设备名称
+@property (nonatomic, readonly, copy) NSString * _Nullable name;
+/// 设备状态
+@property (nonatomic, readonly) enum IDODeviceStateType state;
+/// uuid
+@property (nonatomic, readonly, copy) NSString * _Nullable uuid;
+/// mac address
+@property (nonatomic, readonly, copy) NSString * _Nullable macAddress;
+/// ota mac address
+@property (nonatomic, readonly, copy) NSString * _Nullable otaMacAddress;
+/// bt mac address
+@property (nonatomic, readonly, copy) NSString * _Nullable btMacAddress;
+/// 设备ID
+@property (nonatomic, readonly) NSInteger deviceId;
+/// 设备类型 0:无效 1: 手表 2: 手环
+@property (nonatomic, readonly) NSInteger deviceType;
+/// 是否ota模式
+@property (nonatomic, readonly) BOOL isOta;
+/// 是否泰凌微ota
+@property (nonatomic, readonly) BOOL isTlwOta;
+/// bt版本号
+@property (nonatomic, readonly) NSInteger bltVersion;
+/// 配对状态（Android）
+@property (nonatomic, readonly) BOOL isPair;
+- (nonnull instancetype)initWithRssi:(NSInteger)rssi name:(NSString * _Nullable)name state:(enum IDODeviceStateType)state uuid:(NSString * _Nullable)uuid macAddress:(NSString * _Nullable)macAddress otaMacAddress:(NSString * _Nullable)otaMacAddress btMacAddress:(NSString * _Nullable)btMacAddress deviceId:(NSInteger)deviceId deviceType:(NSInteger)deviceType isOta:(BOOL)isOta isTlwOta:(BOOL)isTlwOta bltVersion:(NSInteger)bltVersion isPair:(BOOL)isPair OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 
 /// 设备通知
 /// Generated class from Pigeon that represents data sent in messages.
@@ -3101,6 +3235,30 @@ SWIFT_CLASS("_TtC16protocol_channel26IDODeviceNotificationModel")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+
+SWIFT_CLASS("_TtC16protocol_channel19IDODeviceStateModel")
+@interface IDODeviceStateModel : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable uuid;
+@property (nonatomic, readonly, copy) NSString * _Nullable macAddress;
+@property (nonatomic, readonly) enum IDODeviceStateType state;
+@property (nonatomic, readonly) enum IDOConnectErrorType errorState;
+- (nonnull instancetype)initWithUuid:(NSString * _Nullable)uuid macAddress:(NSString * _Nullable)macAddress state:(enum IDODeviceStateType)state errorState:(enum IDOConnectErrorType)errorState OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// 连接状态
+typedef SWIFT_ENUM(NSInteger, IDODeviceStateType, open) {
+/// 断开连接
+  IDODeviceStateTypeDisconnected = 0,
+/// 连接中
+  IDODeviceStateTypeConnecting = 1,
+/// 已连接
+  IDODeviceStateTypeConnected = 2,
+/// 断开连接中
+  IDODeviceStateTypeDisconnecting = 3,
+};
+
 /// 设备传输文件类型
 typedef SWIFT_ENUM(NSInteger, IDODeviceTransType, open) {
 /// 语音备忘录文件
@@ -3110,6 +3268,50 @@ typedef SWIFT_ENUM(NSInteger, IDODeviceTransType, open) {
 /// gps算法日志文件
   IDODeviceTransTypeGpsLog = 0x16,
 };
+
+
+/// 设备升级
+SWIFT_CLASS("_TtC16protocol_channel12IDODfuConfig")
+@interface IDODfuConfig : NSObject
+/// ota文件包路径
+@property (nonatomic, readonly, copy) NSString * _Nullable filePath;
+/// 设备的uuid, iOS使用
+@property (nonatomic, readonly, copy) NSString * _Nullable uuid;
+/// 设备的ble地址 安卓使用
+@property (nonatomic, readonly, copy) NSString * _Nullable macAddress;
+/// 设备的id
+@property (nonatomic, readonly, copy) NSString * _Nullable deviceId;
+/// 平台，默认为nordic，目前只支持nordic
+@property (nonatomic, readonly) NSInteger platform;
+/// 设备是否支持配对，根据功能表V3_dev_support_pair_each_connect  安卓使用
+@property (nonatomic, readonly) BOOL isDeviceSupportPairedWithPhoneSystem;
+/// 每次接受到包数，可不填
+@property (nonatomic, readonly) NSInteger prn;
+/// 在重试过程中，如果多次升级失败，是否需要重启蓝牙
+@property (nonatomic, readonly) BOOL isNeedReOpenBluetoothSwitchIfFailed;
+/// 最大重试次数
+@property (nonatomic, readonly) NSInteger maxRetryTime;
+/// RTK平台的OTA，在升级之前是否需要授权
+@property (nonatomic, readonly) BOOL isNeedAuth;
+/// RTK平台的OTA，模式
+@property (nonatomic, readonly) NSInteger otaWorkMode;
+- (nonnull instancetype)initWithFilePath:(NSString * _Nullable)filePath uuid:(NSString * _Nullable)uuid macAddress:(NSString * _Nullable)macAddress deviceId:(NSString * _Nullable)deviceId platform:(NSInteger)platform isDeviceSupportPairedWithPhoneSystem:(BOOL)isDeviceSupportPairedWithPhoneSystem prn:(NSInteger)prn isNeedReOpenBluetoothSwitchIfFailed:(BOOL)isNeedReOpenBluetoothSwitchIfFailed maxRetryTime:(NSInteger)maxRetryTime isNeedAuth:(BOOL)isNeedAuth otaWorkMode:(NSInteger)otaWorkMode OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP16protocol_channel14IDODfuDelegate_")
+@protocol IDODfuDelegate <NSObject>
+/// 监听dfu完成状态
+- (void)dfuComplete;
+/// 监听dfu过程的错误
+- (void)dfuErrorWithError:(NSString * _Nonnull)error;
+/// 监听升级进度
+/// 0-100
+- (void)dfuProgressWithProgress:(NSInteger)progress;
+@end
 
 
 /// Display mode event number
@@ -5030,6 +5232,7 @@ SWIFT_CLASS("_TtC16protocol_channel17IDOHeartModeModel")
 ///
 /// \endcode
 @property (nonatomic) NSInteger getSECMode;
+@property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull secModeArray;
 /// Currently supported heart rate types by the watch,
 /// \code
 /// all 0:invalid values
@@ -5044,6 +5247,7 @@ SWIFT_CLASS("_TtC16protocol_channel17IDOHeartModeModel")
 ///
 /// \endcode
 @property (nonatomic) NSInteger getMinMode;
+@property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull minModeArray;
 /// Notification type:
 /// \code
 /// 0: Invalid
@@ -6385,6 +6589,24 @@ typedef SWIFT_ENUM(NSInteger, IDOOtaType, open) {
 };
 
 
+SWIFT_CLASS("_TtC16protocol_channel14IDOReceiveData")
+@interface IDOReceiveData : NSObject
+/// 蓝牙字节数据
+@property (nonatomic, readonly, copy) NSData * _Nullable data;
+/// uuid
+@property (nonatomic, readonly, copy) NSString * _Nullable uuid;
+/// mac address
+@property (nonatomic, readonly, copy) NSString * _Nullable macAddress;
+/// spp
+@property (nonatomic, readonly) BOOL spp;
+/// 0 爱都, 1 恒玄, 2 VC
+@property (nonatomic, readonly) NSInteger platform;
+- (nonnull instancetype)initWithData:(NSData * _Nullable)data uuid:(NSString * _Nullable)uuid macAddress:(NSString * _Nullable)macAddress spp:(BOOL)spp platform:(NSInteger)platform OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS("_TtC16protocol_channel20IDORunPlanParamModel")
 @interface IDORunPlanParamModel : NSObject
 /// Protocol library version number
@@ -6433,6 +6655,8 @@ SWIFT_PROTOCOL("_TtP16protocol_channel15IDOSdkInterface_")
 @property (nonatomic, readonly, strong) id <IDOCmdInterface> _Nonnull cmd;
 /// 桥接
 @property (nonatomic, readonly, strong) id <IDOBridgeInterface> _Nonnull bridge;
+/// 蓝牙
+@property (nonatomic, readonly, strong) id <IDOBleInterface> _Nonnull ble;
 /// Alexa
 @property (nonatomic, readonly, strong) id <IDOAlexaInterface> _Nonnull alexa;
 /// 文件传输
@@ -6463,6 +6687,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) IDOSDK * _No
 @property (nonatomic, readonly, strong) id <IDOFuncTableInterface> _Nonnull funcTable;
 @property (nonatomic, readonly, strong) id <IDOCmdInterface> _Nonnull cmd;
 @property (nonatomic, readonly, strong) id <IDOBridgeInterface> _Nonnull bridge;
+@property (nonatomic, readonly, strong) id <IDOBleInterface> _Nonnull ble;
 @property (nonatomic, readonly, strong) id <IDOAlexaInterface> _Nonnull alexa;
 @property (nonatomic, readonly, strong) id <IDOFileTransferInterface> _Nonnull transfer;
 @property (nonatomic, readonly, strong) id <IDOMessageIconInterface> _Nonnull messageIcon;
@@ -7553,6 +7778,28 @@ SWIFT_CLASS("_TtC16protocol_channel16IDOSportTypeItem")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+enum IDOSppStateType : NSInteger;
+
+SWIFT_CLASS("_TtC16protocol_channel16IDOSppStateModel")
+@interface IDOSppStateModel : NSObject
+@property (nonatomic, readonly) enum IDOSppStateType type;
+- (nonnull instancetype)initWithType:(enum IDOSppStateType)type OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// spp
+typedef SWIFT_ENUM(NSInteger, IDOSppStateType, open) {
+/// 开始连接
+  IDOSppStateTypeOnStart = 0,
+/// 连接成功
+  IDOSppStateTypeOnSuccess = 1,
+/// 连接失败
+  IDOSppStateTypeOnFail = 2,
+/// 断链
+  IDOSppStateTypeOnBreak = 3,
+};
 
 /// 状态通知
 typedef SWIFT_ENUM(NSInteger, IDOStatusNotification, open) {
@@ -9403,6 +9650,33 @@ SWIFT_CLASS("_TtC16protocol_channel22IDOWorldTimeParamModel")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+enum IDOWriteType : NSInteger;
+
+SWIFT_CLASS("_TtC16protocol_channel18IDOWriteStateModel")
+@interface IDOWriteStateModel : NSObject
+/// 写入状态是否成功
+@property (nonatomic, readonly) BOOL state;
+/// uuid
+@property (nonatomic, readonly, copy) NSString * _Nullable uuid;
+/// mac address
+@property (nonatomic, readonly, copy) NSString * _Nullable macAddress;
+/// 写入类型
+@property (nonatomic, readonly) enum IDOWriteType type;
+- (nonnull instancetype)initWithState:(BOOL)state uuid:(NSString * _Nullable)uuid macAddress:(NSString * _Nullable)macAddress type:(enum IDOWriteType)type OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// 写数据状态
+typedef SWIFT_ENUM(NSInteger, IDOWriteType, open) {
+/// 有响应
+  IDOWriteTypeWithResponse = 0,
+/// 无响应
+  IDOWriteTypeWithoutResponse = 1,
+/// 错误
+  IDOWriteTypeError = 2,
+};
 
 typedef SWIFT_ENUM(NSInteger, NoticeMessageType, open) {
   NoticeMessageTypeSms = 0x01,
