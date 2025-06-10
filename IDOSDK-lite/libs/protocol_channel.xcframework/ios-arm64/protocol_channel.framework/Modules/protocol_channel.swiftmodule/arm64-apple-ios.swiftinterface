@@ -155,6 +155,52 @@ import _SwiftConcurrencyShims
     get
   }
 }
+@objc @objcMembers public class IDOOtaDeviceModel : ObjectiveC.NSObject {
+  @objc public var rssi: Swift.Int {
+    get
+  }
+  @objc public var name: Swift.String? {
+    get
+  }
+  @objc public var uuid: Swift.String? {
+    get
+  }
+  @objc public var macAddress: Swift.String? {
+    get
+  }
+  @objc public var otaMacAddress: Swift.String? {
+    get
+  }
+  @objc public var btMacAddress: Swift.String? {
+    get
+  }
+  @objc public var deviceId: Swift.Int {
+    get
+  }
+  @objc public var deviceType: Swift.Int {
+    get
+  }
+  @objc public var isOta: Swift.Bool {
+    get
+  }
+  @objc public var isTlwOta: Swift.Bool {
+    get
+  }
+  @objc public var bltVersion: Swift.Int {
+    get
+  }
+  @objc public var isPair: Swift.Bool {
+    get
+  }
+  @objc public var platform: Swift.Int {
+    get
+  }
+  @objc public init(rssi: Swift.Int, name: Swift.String?, uuid: Swift.String?, macAddress: Swift.String?, otaMacAddress: Swift.String?, btMacAddress: Swift.String?, deviceId: Swift.Int, deviceType: Swift.Int, isOta: Swift.Bool, isTlwOta: Swift.Bool, bltVersion: Swift.Int, isPair: Swift.Bool, platform: Swift.Int)
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
 @objc @objcMembers public class CmdError : ObjectiveC.NSObject, Swift.Error {
   @objc final public let code: Swift.Int
   @objc final public let message: Swift.String?
@@ -2548,11 +2594,13 @@ extension protocol_channel.IDOBaseModel {
 }
 @objc public protocol IDOBridgeInterface : protocol_channel.IDOBridgePipeInterface {
   @objc func setupBridge(delegate: any protocol_channel.IDOBridgeDelegate, logType: protocol_channel.IDOLogType)
+  @objc optional func markOtaMode(macAddress: Swift.String, iosUUID: Swift.String, platform: Swift.Int, deviceId: Swift.Int, completion: @escaping (Swift.Bool) -> Swift.Void)
 }
 @objc public protocol IDOBridgeDelegate : ObjectiveC.NSObjectProtocol, protocol_channel.IDOBridgePipeDelegate {
   @objc func listenStatusNotification(status: protocol_channel.IDOStatusNotification)
   @objc func listenDeviceNotification(model: protocol_channel.IDODeviceNotificationModel)
   @objc func checkDeviceBindState(macAddress: Swift.String) -> Swift.Bool
+  @objc func listenWaitingOtaDevice(otaDevice: protocol_channel.IDOOtaDeviceModel)
 }
 @objc public protocol IDOBridgePipeInterface {
   @objc func markConnectedDevice(uniqueId: Swift.String, otaType: protocol_channel.IDOOtaType, isBinded: Swift.Bool, deviceName: Swift.String?, completion: @escaping (Swift.Bool) -> Swift.Void)
