@@ -27,6 +27,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>IDOSDK-lite</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>IdoSdk_full</key>
 		<dict>
 			<key>primary</key>
