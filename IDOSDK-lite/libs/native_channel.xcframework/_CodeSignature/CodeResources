@@ -78,7 +78,7 @@
 		</data>
 		<key>ios-arm64/native_channel.framework/native_channel</key>
 		<data>
-		Kdh/MdPhI2XWwnqzXfUZiSE2+KI=
+		uX8/mQBzeSRqP72f//nRtUwzSiU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/native_channel.framework/Headers/Alexa.g.h</key>
 		<data>
@@ -194,7 +194,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/native_channel.framework/native_channel</key>
 		<data>
-		jIVVH9EQZOJweJ3igk9EscJp25k=
+		mj/BthUR9k22y1IirKOuZ9Pit4E=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -401,11 +401,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Kdh/MdPhI2XWwnqzXfUZiSE2+KI=
+			uX8/mQBzeSRqP72f//nRtUwzSiU=
 			</data>
 			<key>hash2</key>
 			<data>
-			iJY7RL1hDm8OW0CkkcvCa16zvAbwJguYHuEJFyQzCOo=
+			SJnH90UqUOzqgnZXX/YVNsoxyzdnHISjUA6lVDfIn7U=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/native_channel.framework/Headers/Alexa.g.h</key>
@@ -720,11 +720,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jIVVH9EQZOJweJ3igk9EscJp25k=
+			mj/BthUR9k22y1IirKOuZ9Pit4E=
 			</data>
 			<key>hash2</key>
 			<data>
-			j6eaXKZI3wys16ChRElILROm0tS9WfIFT5pc5dwt9rg=
+			IRk9sfqnZMzvYOZS9Mt/frMCt/4bzPJF5BWKyH+QZnM=
 			</data>
 		</dict>
 	</dict>
