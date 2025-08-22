@@ -4,65 +4,53 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>ios-arm64/IDOUtils.framework/Headers/IDOUtils.h</key>
+		<key>ios-arm64/Headers/IDOUtils.h</key>
 		<data>
-		eUkDYUhtYAmMh8bkJeuem2tKHjw=
+		z5EIePCSeS6Oyrogq8bIk/XavW4=
 		</data>
-		<key>ios-arm64/IDOUtils.framework/Headers/ImageConvertor.h</key>
+		<key>ios-arm64/Headers/ImageConvertor.h</key>
 		<data>
 		gWnX0Z0ojDV1n9qI1BJNlDRcj+0=
 		</data>
-		<key>ios-arm64/IDOUtils.framework/Headers/eZIPSDKA.h</key>
+		<key>ios-arm64/Headers/eZIPSDKA.h</key>
 		<data>
-		PYcCV7RjOCZk2QGKDkJxUdsQLpU=
+		/NfNlGJzudsFwf24PlxbB3Bbk6A=
 		</data>
-		<key>ios-arm64/IDOUtils.framework/IDOUtils</key>
+		<key>ios-arm64/libeZIPSDKA.a</key>
 		<data>
-		vps8yr0XOO5zCO2et/+8COATCFw=
+		j/lKdDXpLOgQZ13Ot/YWO/0nVxU=
 		</data>
-		<key>ios-arm64/IDOUtils.framework/Info.plist</key>
+		<key>ios-arm64_x86_64-simulator/Headers/IDOUtils.h</key>
 		<data>
-		R9grZ5rYB10E26FXaoZHfO1amTQ=
+		z5EIePCSeS6Oyrogq8bIk/XavW4=
 		</data>
-		<key>ios-arm64/IDOUtils.framework/Modules/module.modulemap</key>
+		<key>ios-arm64_x86_64-simulator/Headers/ImageConvertor.h</key>
 		<data>
-		lbZGwbE03I4fEjS2MBo2PkMtBe4=
+		gWnX0Z0ojDV1n9qI1BJNlDRcj+0=
 		</data>
-		<key>ios-arm64/IDOUtils.framework/_CodeSignature/CodeDirectory</key>
+		<key>ios-arm64_x86_64-simulator/Headers/eZIPSDKA.h</key>
 		<data>
-		k9+RPUXRPn90e8tfO+4/0SaqBx0=
+		/NfNlGJzudsFwf24PlxbB3Bbk6A=
 		</data>
-		<key>ios-arm64/IDOUtils.framework/_CodeSignature/CodeRequirements</key>
+		<key>ios-arm64_x86_64-simulator/libeZIPSDKA.a</key>
 		<data>
-		lA/2G4nwOdX9JHp69Ztx788h2eg=
-		</data>
-		<key>ios-arm64/IDOUtils.framework/_CodeSignature/CodeRequirements-1</key>
-		<data>
-		xDFSLe84IfRhdGHFLG6nqcbMo6M=
-		</data>
-		<key>ios-arm64/IDOUtils.framework/_CodeSignature/CodeResources</key>
-		<data>
-		jNHRHT0LdeJRuX+iGdc1z1yVCNI=
-		</data>
-		<key>ios-arm64/IDOUtils.framework/_CodeSignature/CodeSignature</key>
-		<data>
-		aC3UvNMkEFIDumAxjIRTa2YF500=
+		LpmEAhb5ZgZTigzlbBtt2xStXoA=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>ios-arm64/IDOUtils.framework/Headers/IDOUtils.h</key>
+		<key>ios-arm64/Headers/IDOUtils.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eUkDYUhtYAmMh8bkJeuem2tKHjw=
+			z5EIePCSeS6Oyrogq8bIk/XavW4=
 			</data>
 			<key>hash2</key>
 			<data>
-			lmlSeYrsUFPAaDMoL9Bhd84iSPJuqVtqq2mTXdEh0qg=
+			/h4fzZWmCv3uS7S2pwzYi/eJOWv8hSQR7gM5Q+k5vhA=
 			</data>
 		</dict>
-		<key>ios-arm64/IDOUtils.framework/Headers/ImageConvertor.h</key>
+		<key>ios-arm64/Headers/ImageConvertor.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -73,103 +61,70 @@
 			aQxOgNf6ygIUxkUGYXmDzTgeMS+nUD5O5dbQbt3LJmw=
 			</data>
 		</dict>
-		<key>ios-arm64/IDOUtils.framework/Headers/eZIPSDKA.h</key>
+		<key>ios-arm64/Headers/eZIPSDKA.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PYcCV7RjOCZk2QGKDkJxUdsQLpU=
+			/NfNlGJzudsFwf24PlxbB3Bbk6A=
 			</data>
 			<key>hash2</key>
 			<data>
-			ERL3JC6x0EW09yLIs7QPoVUIKyKcLGQ703xkGxRZGw4=
+			Q65oLhHDHDKgpBeRs++ZJ0/s+uHq6EDdD2W1CxMq4EY=
 			</data>
 		</dict>
-		<key>ios-arm64/IDOUtils.framework/IDOUtils</key>
+		<key>ios-arm64/libeZIPSDKA.a</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vps8yr0XOO5zCO2et/+8COATCFw=
+			j/lKdDXpLOgQZ13Ot/YWO/0nVxU=
 			</data>
 			<key>hash2</key>
 			<data>
-			BIAhfxaxn8m0d9cysD+WY4xsl+TNzsGUqzdf7nbStfk=
+			bNJGfI9lI3NhuChXxFfLt3rHb+6nzjhJgXE9g2OuTX4=
 			</data>
 		</dict>
-		<key>ios-arm64/IDOUtils.framework/Info.plist</key>
+		<key>ios-arm64_x86_64-simulator/Headers/IDOUtils.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			R9grZ5rYB10E26FXaoZHfO1amTQ=
+			z5EIePCSeS6Oyrogq8bIk/XavW4=
 			</data>
 			<key>hash2</key>
 			<data>
-			/F7jZU9sAoYqk6fsdfgb54Izx5Kd8+0AFL/hOfjpM+8=
+			/h4fzZWmCv3uS7S2pwzYi/eJOWv8hSQR7gM5Q+k5vhA=
 			</data>
 		</dict>
-		<key>ios-arm64/IDOUtils.framework/Modules/module.modulemap</key>
+		<key>ios-arm64_x86_64-simulator/Headers/ImageConvertor.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lbZGwbE03I4fEjS2MBo2PkMtBe4=
+			gWnX0Z0ojDV1n9qI1BJNlDRcj+0=
 			</data>
 			<key>hash2</key>
 			<data>
-			FYGRnVjqL3hdYIuPf+KszZD57qzYu8guakxPijxZk9I=
+			aQxOgNf6ygIUxkUGYXmDzTgeMS+nUD5O5dbQbt3LJmw=
 			</data>
 		</dict>
-		<key>ios-arm64/IDOUtils.framework/_CodeSignature/CodeDirectory</key>
+		<key>ios-arm64_x86_64-simulator/Headers/eZIPSDKA.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			k9+RPUXRPn90e8tfO+4/0SaqBx0=
+			/NfNlGJzudsFwf24PlxbB3Bbk6A=
 			</data>
 			<key>hash2</key>
 			<data>
-			2MOMjNn2wrteA45iU72JvrcL6VoTv1qIqcaX7UDm0dM=
+			Q65oLhHDHDKgpBeRs++ZJ0/s+uHq6EDdD2W1CxMq4EY=
 			</data>
 		</dict>
-		<key>ios-arm64/IDOUtils.framework/_CodeSignature/CodeRequirements</key>
+		<key>ios-arm64_x86_64-simulator/libeZIPSDKA.a</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lA/2G4nwOdX9JHp69Ztx788h2eg=
+			LpmEAhb5ZgZTigzlbBtt2xStXoA=
 			</data>
 			<key>hash2</key>
 			<data>
-			8zCK5ABwRmLsHRxhH8orhgFBdze2j6ywF949oPDmeQg=
-			</data>
-		</dict>
-		<key>ios-arm64/IDOUtils.framework/_CodeSignature/CodeRequirements-1</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			xDFSLe84IfRhdGHFLG6nqcbMo6M=
-			</data>
-			<key>hash2</key>
-			<data>
-			11uAcq8sKplEb8y/Pv34AryitsfAEeTFjCHSK7Kftvc=
-			</data>
-		</dict>
-		<key>ios-arm64/IDOUtils.framework/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jNHRHT0LdeJRuX+iGdc1z1yVCNI=
-			</data>
-			<key>hash2</key>
-			<data>
-			yBCAjb7uCNbsIiePNiuSQtLYWaRVviZh8/CbXUEEurk=
-			</data>
-		</dict>
-		<key>ios-arm64/IDOUtils.framework/_CodeSignature/CodeSignature</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			aC3UvNMkEFIDumAxjIRTa2YF500=
-			</data>
-			<key>hash2</key>
-			<data>
-			8q9b1HZMD/n/DtlMTGaNn6x+FXegB1V5Tb+viz/DYVE=
+			0dGcEfdbv2Y2sz5Cjb+yxcFZCyffakvqGa3Aw3DiiEQ=
 			</data>
 		</dict>
 	</dict>

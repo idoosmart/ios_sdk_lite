@@ -6,7 +6,7 @@
 	<dict>
 		<key>ios-arm64/App.framework/App</key>
 		<data>
-		P6oik7AfpBkRGnQOA3AlDFmNlDM=
+		tXWPQzFWcYoI6n5uXNgLMa40AW4=
 		</data>
 		<key>ios-arm64/App.framework/Info.plist</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>ios-arm64/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		ebt8EN57pcgfxxnqNMCsgRWsxss=
+		h9EEzd/ezA4WCLTG1TJeLiOQI2g=
 		</data>
 		<key>ios-arm64/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>ios-arm64/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		8HTx284x61otLrmiIhqmagY3Zs8=
+		LHZlr2vt0O4UQ2gcS7MbpRDSnbE=
 		</data>
 		<key>ios-arm64/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -38,9 +38,49 @@
 		</data>
 		<key>ios-arm64/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
-		Bvk+P1ykE1PGRdktwgwDyz6AOqM=
+		P7bb/oR3EhwqCIH1M6LyTuBIWYU=
 		</data>
 		<key>ios-arm64/App.framework/flutter_assets/shaders/ink_sparkle.frag</key>
+		<data>
+		VoVnsu58hN7wrwazX0nyAopiB0Q=
+		</data>
+		<key>ios-arm64_x86_64-simulator/App.framework/App</key>
+		<data>
+		yzMNVXAkaRtdtwhickqa3vo+Hc8=
+		</data>
+		<key>ios-arm64_x86_64-simulator/App.framework/Info.plist</key>
+		<data>
+		v10piOmBHTxeYWlCGao8AP5jsA4=
+		</data>
+		<key>ios-arm64_x86_64-simulator/App.framework/_CodeSignature/CodeResources</key>
+		<data>
+		h9EEzd/ezA4WCLTG1TJeLiOQI2g=
+		</data>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/AssetManifest.bin</key>
+		<data>
+		ME0cAg6cl/bTZmwXEVgMugDccUI=
+		</data>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/AssetManifest.json</key>
+		<data>
+		oG5/OGn+vw7vp/nu5DUDoZJ4nFc=
+		</data>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/FontManifest.json</key>
+		<data>
+		vKJkVIcw+LGHFnKJGwrQwCREv68=
+		</data>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/NOTICES.Z</key>
+		<data>
+		LHZlr2vt0O4UQ2gcS7MbpRDSnbE=
+		</data>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
+		<data>
+		mVAvkqBR7W9zKiqihIzdbPkSnq0=
+		</data>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
+		<data>
+		P7bb/oR3EhwqCIH1M6LyTuBIWYU=
+		</data>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/shaders/ink_sparkle.frag</key>
 		<data>
 		VoVnsu58hN7wrwazX0nyAopiB0Q=
 		</data>
@@ -51,11 +91,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			P6oik7AfpBkRGnQOA3AlDFmNlDM=
+			tXWPQzFWcYoI6n5uXNgLMa40AW4=
 			</data>
 			<key>hash2</key>
 			<data>
-			799RrUk9yApuDAXiXlOGaIoKqXTVbYLkZuoaPdIzLLA=
+			JkBWPv0QmOdVOFS4LsPM/1FQTa1jprLBwcOYKjpDjMk=
 			</data>
 		</dict>
 		<key>ios-arm64/App.framework/Info.plist</key>
@@ -73,11 +113,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ebt8EN57pcgfxxnqNMCsgRWsxss=
+			h9EEzd/ezA4WCLTG1TJeLiOQI2g=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZZ1fhTPoT/cL2NtU0XH+qg+oSa583uRoKF4l0Lu+RyI=
+			o0WEtapnDin9Yru5UKBOUuqfGCyccRp2OChDYmAtPJc=
 			</data>
 		</dict>
 		<key>ios-arm64/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -117,11 +157,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8HTx284x61otLrmiIhqmagY3Zs8=
+			LHZlr2vt0O4UQ2gcS7MbpRDSnbE=
 			</data>
 			<key>hash2</key>
 			<data>
-			YnukO26qFigtle4oRs76AAaoadSZkdAoOS5IBqhFVRI=
+			GGR1ShUE7NGvFUFEU1Lt272ikBA5HinyFcyXG4de/F0=
 			</data>
 		</dict>
 		<key>ios-arm64/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -139,14 +179,124 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Bvk+P1ykE1PGRdktwgwDyz6AOqM=
+			P7bb/oR3EhwqCIH1M6LyTuBIWYU=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z8RP6Rg7AC553ef2l34piGYcmj5KPF/OloeH79vtgjw=
+			x6NX+tjyECiQtyzbbjyY8U2zoZ7GDbJtE+T+k/dzgI0=
 			</data>
 		</dict>
 		<key>ios-arm64/App.framework/flutter_assets/shaders/ink_sparkle.frag</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VoVnsu58hN7wrwazX0nyAopiB0Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			4PC1vOWKHlNOnW4dGwFfD4TPwBCllniPCsOy7+1X5co=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/App.framework/App</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yzMNVXAkaRtdtwhickqa3vo+Hc8=
+			</data>
+			<key>hash2</key>
+			<data>
+			dO2xhUeB5CCuX+8OJ6fYQiAHhMOmhcdiHtKjJAMLOIo=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/App.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			v10piOmBHTxeYWlCGao8AP5jsA4=
+			</data>
+			<key>hash2</key>
+			<data>
+			aYcAClrNSnob7UJdVL3SmABk/LyOT8IgEOg2ATmIapw=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/App.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			h9EEzd/ezA4WCLTG1TJeLiOQI2g=
+			</data>
+			<key>hash2</key>
+			<data>
+			o0WEtapnDin9Yru5UKBOUuqfGCyccRp2OChDYmAtPJc=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/AssetManifest.bin</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ME0cAg6cl/bTZmwXEVgMugDccUI=
+			</data>
+			<key>hash2</key>
+			<data>
+			AK9VrT1vIYmP534P8JLRoc2lLJQbaGDpko1FyK+MCV0=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/AssetManifest.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			oG5/OGn+vw7vp/nu5DUDoZJ4nFc=
+			</data>
+			<key>hash2</key>
+			<data>
+			Sps95+7JukayebvM0TLjL1LW1VXXndpKp/O8tOm9ZR8=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/FontManifest.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vKJkVIcw+LGHFnKJGwrQwCREv68=
+			</data>
+			<key>hash2</key>
+			<data>
+			zX4DZFvESy3Ue3y2JvUcTsv1Whl6t3JBYotHrBZfviE=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/NOTICES.Z</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LHZlr2vt0O4UQ2gcS7MbpRDSnbE=
+			</data>
+			<key>hash2</key>
+			<data>
+			GGR1ShUE7NGvFUFEU1Lt272ikBA5HinyFcyXG4de/F0=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mVAvkqBR7W9zKiqihIzdbPkSnq0=
+			</data>
+			<key>hash2</key>
+			<data>
+			0E0naGdH4CyniTXwia/X4ykdYwgwA1aM2FdvE2PEsQo=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			P7bb/oR3EhwqCIH1M6LyTuBIWYU=
+			</data>
+			<key>hash2</key>
+			<data>
+			x6NX+tjyECiQtyzbbjyY8U2zoZ7GDbJtE+T+k/dzgI0=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/App.framework/flutter_assets/shaders/ink_sparkle.frag</key>
 		<dict>
 			<key>hash</key>
 			<data>
