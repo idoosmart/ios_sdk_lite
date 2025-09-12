@@ -30,7 +30,7 @@
 		</data>
 		<key>ios-arm64/protocol_c.framework/protocol_c</key>
 		<data>
-		4maTEg8D5ZLp29CUwmV/w4kTV6g=
+		8vkDlqXcp6AMZ2iMbCW/uMs0sVk=
 		</data>
 		<key>ios-arm64/protocol_c.framework/protocol_c.bundle/Info.plist</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/protocol_c.framework/protocol_c</key>
 		<data>
-		TJMNHca52Cb73x9ToejVb8QqZGs=
+		UwFwLWEpu5UCmtZ55UIl4Hb4R1Y=
 		</data>
 		<key>ios-arm64_x86_64-simulator/protocol_c.framework/protocol_c.bundle/Info.plist</key>
 		<data>
@@ -173,11 +173,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4maTEg8D5ZLp29CUwmV/w4kTV6g=
+			8vkDlqXcp6AMZ2iMbCW/uMs0sVk=
 			</data>
 			<key>hash2</key>
 			<data>
-			BI7nZOSKyHs59CB3ox4JZ1NpFRk9TV+sIJsnFwhP/Qc=
+			o2QcogdBcF4e5/Pof9fWj2/FGSHo9zQ7gCfhl8gkvTg=
 			</data>
 		</dict>
 		<key>ios-arm64/protocol_c.framework/protocol_c.bundle/Info.plist</key>
@@ -283,11 +283,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TJMNHca52Cb73x9ToejVb8QqZGs=
+			UwFwLWEpu5UCmtZ55UIl4Hb4R1Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			OfKI6bkeaTQXHc2c6lbjMkVNHziOtyFMbaw7jnDkq3o=
+			RtZiVlmOAJ4c359pE/0sMWnmvx3+PZPrkd5amCPwJLE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/protocol_c.framework/protocol_c.bundle/Info.plist</key>
