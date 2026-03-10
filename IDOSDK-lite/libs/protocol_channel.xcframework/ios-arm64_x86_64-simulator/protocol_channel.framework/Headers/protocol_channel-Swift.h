@@ -2440,7 +2440,7 @@ SWIFT_CLASS("_TtC16protocol_channel31IDOBleRestoreReplyExchangeModel")
 SWIFT_CLASS("_TtC16protocol_channel24IDOBleStartExchangeModel")
 @interface IDOBleStartExchangeModel : NSObject
 @property (nonatomic, strong) IDOExchangeBaseModel * _Nullable baseModel;
-/// 1：请求app打开gps 2：发起运动请求
+/// 1：请求app打开gps 2：发起运动请求  3:发起运动开始后台联动请求
 @property (nonatomic) NSInteger operate;
 - (nonnull instancetype)initWithBaseModel:(IDOExchangeBaseModel * _Nullable)baseModel operate:(NSInteger)operate OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -13167,7 +13167,7 @@ SWIFT_CLASS("_TtC16protocol_channel31IDOBleRestoreReplyExchangeModel")
 SWIFT_CLASS("_TtC16protocol_channel24IDOBleStartExchangeModel")
 @interface IDOBleStartExchangeModel : NSObject
 @property (nonatomic, strong) IDOExchangeBaseModel * _Nullable baseModel;
-/// 1：请求app打开gps 2：发起运动请求
+/// 1：请求app打开gps 2：发起运动请求  3:发起运动开始后台联动请求
 @property (nonatomic) NSInteger operate;
 - (nonnull instancetype)initWithBaseModel:(IDOExchangeBaseModel * _Nullable)baseModel operate:(NSInteger)operate OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
