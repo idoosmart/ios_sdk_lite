@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'IDOSDK-lite'
-  s.version          = '4.5.0'
+  s.version          = '4.5.1'
   s.summary          = 'ido sdk'
   s.description      = <<-DESC
   ido sdk
@@ -24,8 +24,7 @@ Pod::Spec.new do |s|
     'IDOSDK-lite/libs/native_channel.xcframework',
     'IDOSDK-lite/libs/protocol_channel.xcframework',
     'IDOSDK-lite/libs/protocol_c.xcframework',
-    'IDOSDK-lite/libs/IDOUtils.xcframework',
-    'IDOSDK-full/libs/SwiftCBOR.xcframework'
+    'IDOSDK-lite/libs/IDOUtils.xcframework'
    ]
    
   s.resources = ['Resources/icon_assets.bundle']
